@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Kshitija's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #a55be5, #61676f, #9412da);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            animation: gradientMove 10s infinite alternate;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        .container {
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            animation: popIn 1s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        input {
+            padding: 0.7rem;
+            border-radius: 12px;
+            border: none;
+            margin-top: 1rem;
+            background-color: #605862;
+            color: #2B2D42;
+            outline: none;
+            transition: transform 0.3s ease;
+        }
+
+        input:focus {
+            transform: scale(1.1);
+        }
+
+        button {
+            padding: 0.7rem 1.5rem;
+            margin-top: 1rem;
+            border: none;
+            border-radius: 12px;
+            background-color: #463956;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #442046;
+            transform: scale(1.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a {
+            color: #01080f;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .info {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Kshitija's Portfolio</h1>
+        <img src="https://terroform-devops-test-bucket2.s3.us-west-2.amazonaws.com/profilepic.jpeg" alt="Kshitija's Profile Picture" style="width: 200px; border-top: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.3);"><br>
+        <label for="username">Enter your name : </label>
+        <input type="text" id="username" placeholder="Your name...">
+        <button onclick="greetUser()">Submit</button>
+
+        <p id="greeting" class="hidden">Hello, <span id="userNameDisplay"></span>! Welcome aboard!<br></p>
+
+    <div class="info">
+        <details>
+            <summary>Click for a fun fact!</summary>
+            <p>Did you know? The first website ever created is still live at <a href="http://info.cern.ch/" target="_blank">info.cern.ch</a>!</p>
+        </details>
+    </div>
+
+        <div class="info">
+            <h2>Kshitija Chauhan</h2>
+            <p>(Inquisitive, Team-Oriented, Dedicated)</p>
+            <p> Phone : +91 7088822002</p>
+            <p> Email : <a href="mailto:kshitijachauhan22@gmail.com">kshitijachauhan22@gmail.com</a></p>
+            <p> SAP Mail : <a href="mailto:Kshitija.chauhan@sap.com">kshitija.chauhan@sap.com</a></p>
+            <p> LinkedIn : <a href="https://www.linkedin.com/in/kshitija-chauhan-82593020b" target="_blank">https://www.linkedin.com/in/kshitija-chauhan-82593020b</a></p>
+        </div>
+    </div>
+
+    <script>
+        function greetUser() {
+            const name = document.getElementById('username').value.trim();
+            const greeting = document.getElementById('greeting');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+
+            if (name) {
+                userNameDisplay.textContent = name;
+                greeting.classList.remove('hidden');
+            }else {
+                // Redirect to error.html if name is empty
+                window.location.href = 'error.html';
+            }
+        }
+    </script>
+</body>
+</html>
+
